@@ -8,21 +8,21 @@ function DogPics() {
   useEffect(() => {
     console.log("useEffect");
     fetch("https://dog.ceo/api/breeds/image/random/3")
-      .then((r) => r.json())
-      .then((data) => {
-        console.log("setState");
-        setImages(data.message);
-      });
-  });
+        .then((r) => r.json())
+        .then((data) => {
+          console.log("setState");
+          setImages(data.message);
+        });
+  }, []);
 
   console.log("render");
 
   return (
-    <div>
-      {images.map((image) => (
-        <img src={image} key={image} />
-      ))}
-    </div>
+      <div>
+        {images.map((image) => (
+            <img src={image} key={image} />
+        ))}
+      </div>
   );
 }
 
